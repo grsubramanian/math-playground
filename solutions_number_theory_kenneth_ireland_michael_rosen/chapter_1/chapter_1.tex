@@ -1,6 +1,10 @@
 \documentclass{article}
+\usepackage[skip=10pt]{parskip}
 \begin{document}
 
 13. Consider the set of all linear combinations of the form $x_1n_1 + x_2n_2 + ... + x_sn_s$. Clearly, the integers $abs(n_1)$, $abs(n_2)$, ... $abs(n_s)$ themselves belong to this set. Now consider the smallest positive integer $c$ that belongs to this set. Clearly, $c <= abs(n_1)$, $c <= abs(n_2)$, ... and $c <= abs(n_s)$. Consider the remainder $r$ obtained by dividing $abs(n_1)$ by $c$. We can write $r$ as $abs(n_1) - qc$ for some quotient $q$. Since $abs(n_1)$ and $c$ can both be written in the linear combination form above, so too can $r$. However, since $c$ is the smallest positive such linear combination, $r$ cannot be positive. In other words, we must have $r = 0$, or equivalently, $c | abs(n_1)$. We can similarly derive that $c | abs(n_2)$, ... and $c | abs(n_s)$. This tells us that $c$ is a common divisor of $n_1$, $n_2$, ... and $n_s$. In particular $c | d$, where $d = GCD(n_1, n_2, ...n_s)$. Since $c$ can be expressed as a linear combination of the above form, so too can $d$. This concludes the proof. In fact, since $d$ must divide all integers of the linear combination form above, we must have $d | c$, which leads us to the conclusion that $c = d$.
 
+17. The proof is a special case of proof for exercise 18. Replace $m$ and $n$ both with $2$.
+
+18. Assume that $\sqrt[n]{m}$ is rational i.e. can be expressed as a ratio of integers $a / b$. We'll prove that this leads to a contradiction. Raise both sides of the equation to the $n$th power. This yields $m = a^n / b^n$. The prime factorization of $a^n$ and $b^n$ must contain primes raised to an integer that is a multiple of $n$. Even as the primes in the numerator and denominator cancel out to yield $m$ (on the LHS), the resulting prime factorization must still contain primes raised to an integer that is a multiple of $n$. This implies that $m$ is the $n$th power of some integer, which contradicts what we have been told about $m$. This concludes the proof.
 \end{document}
