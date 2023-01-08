@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage[skip=10pt]{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+
+3a. Let's consider the expression $n!e^n$.
+
+\[ n!e^n = \prod_{k=1}^n ke \]
+
+We are now going to replace each of the $e$'s with an inequality based on the fact that $e > (1 + 1 / r)^r$ for all positive integers $r$.
+
+\begin{align*}
+    n!e^n &> \prod_{k=1}^n k(1 + 1 /k)^k \\
+    n!e^n &> \prod_{k=1}^n (k + 1)^k / k^{k - 1}
+\end{align*}
+
+We can now cancel each of the denominators on the RHS with the preceding numerator, and obtain
+
+\begin{align*}
+    n!e^n &> (n + 1)^n \\
+    n!e^n &> n^n \\
+    \therefore n! &> (n / e)^n
+\end{align*}
+
+This concludes the proof.
+
+\end{document}
