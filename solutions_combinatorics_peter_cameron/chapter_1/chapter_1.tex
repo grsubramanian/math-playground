@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage[skip=10pt]{parskip}
+\usepackage{amsmath}
+\begin{document}
+
+2. Here's a solution to the Kirkman's problem for 9 schoolgirls walking for 4 days, represented in matrix form, wherein each matrix corresponds to a single day, and each row within a matrix corresponds to a single group.
+
+The solution for day 1 lays the numbering scheme for the school girls. There is no magic in that. The solution for day 2 is just a transpose of the solution for day 1. Thereafter, in the remaining two days, the first column stays the same, and other columns just show up in various permutations of themselves.
+
+Day 1:
+\[
+\begin{matrix}
+    1 & 2 & 3\\
+    4 & 5 & 6\\
+    7 & 8 & 9
+\end{matrix}
+\]
+
+Day 2:
+\[
+\begin{matrix}
+    1 & 4 & 7\\
+    2 & 5 & 8\\
+    3 & 6 & 9
+\end{matrix}
+\]
+
+Day 3:
+\[
+\begin{matrix}
+    1 & 5 & 9\\
+    2 & 6 & 7\\
+    3 & 4 & 8
+\end{matrix}
+\]
+
+Day 4:
+\[
+\begin{matrix}
+    1 & 6 & 8\\
+    2 & 4 & 9\\
+    3 & 5 & 7
+\end{matrix}
+\]
+
+\end{document}
