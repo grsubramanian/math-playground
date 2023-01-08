@@ -9,4 +9,7 @@
 17. The proof is a special case of proof for exercise 18. Replace $m$ and $n$ both with $2$.
 
 18. Assume that $\sqrt[n]{m}$ is rational i.e. can be expressed as a ratio of integers $a / b$. We'll prove that this leads to a contradiction. Raise both sides of the equation to the $n$th power. This yields $m = a^n / b^n$. The prime factorization of $a^n$ and $b^n$ must contain primes raised to an integer that is a multiple of $n$. Even as the primes in the numerator and denominator cancel out to yield $m$ (on the LHS), the resulting prime factorization must still contain primes raised to an integer that is a multiple of $n$. This implies that $m$ is the $n$th power of some integer, which contradicts what we have been told about $m$. This concludes the proof.
+
+25. In this proof, we will leverage the equation derived from exercise 24, namely $x^n - y^n = (x - y)(x^{n-1} + x^{n-2}y + ... + y^{n-1})$. Firstly, $a^n - 1$ can only be prime if $a = 2$, because otherwise $a^n - 1$ which can be written as $(a - 1)(a^{n - 1} + a^{n - 2} + ... + 1)$, is a product of two integers both greater than $1$. Secondly, $2^n - 1$ can only be prime if $n$ itself is prime, because otherwise $n = ab$ for some $a > 1$ and $b > 1$, and $2^n - 1$, which can be written as $2^{ab} - 1 = (2^a)^b - 1 = (2^a - 1)((2^a)^{b - 1} + (2^a)^{b - 2} + ... + 1)$, is a product of two integers both greater than $1$. In summary, if $a^n - 1$ is prime, then $a = 2$ and $n$ is prime. This concludes the two proofs.
+
 \end{document}
