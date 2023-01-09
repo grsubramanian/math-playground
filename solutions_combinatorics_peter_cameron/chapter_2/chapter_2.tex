@@ -4,7 +4,31 @@
 \usepackage{amssymb}
 \begin{document}
 
-3a. Let's consider the expression $n!e^n$.
+3a. The base case is for $n = 1$, where we see the inequality obviously holds true because $1! > (1 / e)^1$. If we assume the inequality to hold true for $n$, then we are left to prove the inequality true for $n + 1$.
+
+\begin{align*}
+    (n + 1)! &= (n + 1)n! \\
+    (n + 1)! &> (n + 1)(n / e)^n \\
+\end{align*}
+
+Multiplying numerator and denominotor on the RHS by $(n + 1)^n$, we get
+
+\begin{align*}
+    (n + 1)! &> (n + 1)^{n + 1} (n / (n + 1))^n  / e^n \\
+    (n + 1)! &> (n + 1)^{n + 1} (1 / (1 + 1 / n)^n) / e^n \\
+\end{align*}
+
+Now, since $e > (1 + 1 / n)^n$ for all $n$, we get
+
+\begin{align*}
+    (n + 1)! &> (n + 1)^{n + 1} (1 / e) / e^n \\
+    (n + 1)! &> (n + 1)^{n + 1} / e^{n + 1} \\
+    (n + 1)! &> ((n + 1) / e)^{n + 1} \\
+\end{align*}
+
+This concludes the proof by induction. Let's now prove by construction (although not asked for in the exercise).
+
+Consider the following expansion of $n!e^n$.
 
 \[ n!e^n = \prod_{k=1}^n ke \]
 
