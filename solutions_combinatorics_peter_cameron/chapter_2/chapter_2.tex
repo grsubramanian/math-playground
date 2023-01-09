@@ -49,4 +49,23 @@ We can now cancel each of the denominators on the RHS with the preceding numerat
 
 This concludes the proof.
 
+3b. We'll apply the arithmetico-geometric inequality on the set of integers ${1, 2, 3, ..., n}$. This gives us
+
+\begin{align*}
+    \sqrt[n]{\prod_{k = 1}^n k} &< (\sum_{k = 1}^n k) / n \\
+    \sqrt[n]{n!} &< (n(n + 1) / 2) / n \\
+    n! &< ((n + 1) / 2)^n
+\end{align*}
+
+Multiplying numerator and denominator on the RHS by $n^n$, we get
+
+\begin{align*}
+    n! &< ((n + 1) / n)^n (n / 2)^n \\
+    n! &< (1 + 1 / n)^n (n / 2)^n
+\end{align*}
+
+Once again, since $e > (1 + 1 / n)^n$ for all $n$, we get the desired result $n! < e(n / 2)^n$.
+
+
+
 \end{document}
