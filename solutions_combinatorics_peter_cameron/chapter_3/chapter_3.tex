@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage[skip=10pt]{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+
+3a. Consider any processing operation that has two types A and B. Now, let's count the number of ways we can pick $k$ objects from $n$ and apply processing operation A on $l$ of the $k$ objects and operation B on the remaining $k - l$ objects. We can count this in two equivalent ways.
+
+\begin{itemize}
+    \item ${n \choose k}{k \choose l}$, which involves picking $k$ objects from $n$, and then picking the $l$ from amongst those $k$.
+    \item ${n \choose l}{n - l \choose k - l}$, which involves picking $l$ objects from $n$, and then picking the $k - l$ from amongst the remaining $n - l$.
+\end{itemize}
+
+This concludes the proof.
+
+3b. Let's say we have $m$ boys and $n$ girls to pick a total of $k$ people from. We can count this in two equivalent ways.
+
+\begin{itemize}
+    \item ${m + n \choose k}$, which involves picking $k$ objects from amongst the total of $m + n$ people.
+    \item $\sum_{i=0}^k {m \choose i}{n \choose k - i}$, which involves counting $k + 1$ exclusive possibilities, wherein in each possibility, we pick a certain number $i$ of boys from amongst the $m$ boys, and the remaining $k - i$ required people from the $n$ girls.
+\end{itemize}
+
+This concludes the proof.
+
+3d. The algebraic proof is based on differentiating the two sides of the binomial expression for $(1 + t)^n$ and then replacing $t$ with $1$. But this is a bit mundane. So let's give a combinatorial proof instead.
+
+Consider $n$ objects, and say we need to do two things - first pick at least one of them, and then designate a leader from amongst those picked. We can count this in two equivalent ways.
+
+\begin{itemize}
+    \item $\sum_{i=1}^k {n \choose i} i$, which involves counting $k$ exclusive possibilities, wherein in each possibility, we first pick a certain number $i$ of objects from among the $n$ objects, and then designate one of those $i$ objects as leader.
+    \item $n2^{n - 1}$, which involves first picking a leader, and then picking $0$ or more objects from the remaining $n - 1$ objects. 
+\end{itemize}
+
+This concludes the proof.
+
+\end{document}
