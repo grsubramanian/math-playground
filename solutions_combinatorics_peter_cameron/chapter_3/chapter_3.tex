@@ -22,6 +22,8 @@ This concludes the proof.
 
 This concludes the proof.
 
+3c. This can easily be proven by repeated application of the rule ${n + k + 1 \choose k} = {n + k \choose k} + {n + k \choose k - 1}$, to the last term in this equation all the way down to ${n \choose 0}$. Induction seems like the cleanest way to setup this proof.
+
 3d. The algebraic proof is based on differentiating the two sides of the binomial expression for $(1 + t)^n$ and then replacing $t$ with $1$. But this is a bit mundane. So let's give a combinatorial proof instead.
 
 Consider $n$ objects, and say we need to do two things - first pick at least one of them, and then designate a leader from amongst those picked. We can count this in two equivalent ways.
@@ -29,6 +31,15 @@ Consider $n$ objects, and say we need to do two things - first pick at least one
 \begin{itemize}
     \item $\sum_{i=1}^k {n \choose i} i$, which involves counting $k$ exclusive possibilities, wherein in each possibility, we first pick a certain number $i$ of objects from among the $n$ objects, and then designate one of those $i$ objects as leader.
     \item $n2^{n - 1}$, which involves first picking a leader, and then picking $0$ or more objects from the remaining $n - 1$ objects. 
+\end{itemize}
+
+This concludes the proof.
+
+3e. We'll use the binomial theorem. Consider the expression $(1 + a)^n(1 - a)^n = (1 - a^2)^n$ and its full expansion. We'd like to specifically find the coefficient of the term $a^n$ in the expansion. We can count this in two equivalent ways.
+
+\begin{itemize}
+    \item by picking for each value of $k$ in the range $[0, n]$, $a^k$ from the expansion of $(1 + a)^n$ and multiplying it with $a^{n - k}$ from the expansion of $(1 - a)^n$, thus implying that the desired coefficient would be $\sum_{k=0}^n{n \choose k}{n \choose n - k} = \sum_{k=0}^n{n \choose k}{n \choose k}$.
+    \item by picking the coefficient of $a^n$ in the expansion of $(1 - a^2)^n$, which happens to be $0$ in case $n$ is odd, and $(-1)^{n/2}{n \choose n / 2}$ in case $n$ is even.
 \end{itemize}
 
 This concludes the proof.
