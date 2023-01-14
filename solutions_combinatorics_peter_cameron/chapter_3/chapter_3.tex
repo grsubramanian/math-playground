@@ -53,4 +53,6 @@ This concludes the proof.
 
 This concludes the proof by induction.
 
+8. Any cyclic permutation on $n$ objects can be mapped to arrangements of those objects - simply pick a starting object and then apply the permutation to obtain the next object in the arrangement. Since there are $n$ choices for the starting object, there are $n$ resulting arrangements. Conversely, given any arrangement, it is possible to reverse engineer a cyclic permutation which when expressed as above can yield the arrangement. Thus, the number of cyclic permutations on $n$ objects is equal to the number of equivalence classes in the set of arrangements of $n$ objects, wherein two arrangements are equivalent if one can be obtained from another by cyclically shifting the arragenement. Since the total number of arrangements is $n!$, and the the size of each equivalence class is $n$, the number of equivalence classes, and thus the desired count is $(n - 1)!$. This concludes the proof.
+
 \end{document}
