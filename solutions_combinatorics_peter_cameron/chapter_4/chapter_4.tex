@@ -54,4 +54,7 @@ This concludes the proof.
 \end{align*}
 
 This concludes the proof by induction.
+
+7. The inefficient algorithm computes $F_n$ recursively as $F_{n - 1} + F_{n - 2}$, then each of these recursively without storing intermediate results. Let's call the number of additions required to compute $F_n$ as $A_n$. Clearly, $A_0 = A_1 = 0$, since the algorithm uses the base case values of $F_0 = F_1 = 1$ and does not need to perform any additions in this case. Further, we can see that $A_n = A_{n - 1} + A_{n - 2} + 1$, because in order to compute $F_n$ naively, the algorithm would have to compute $F_{n - 1}$ and $F_{n - 2}$ independently, which would respectively take $A_{n - 1}$ and $A_{n - 2}$ additions, and then finally perform an extra addition to sum these two values. It is easy to see via induction that $A_n = F_n - 1$. This concludes the proof.
+
 \end{document}
