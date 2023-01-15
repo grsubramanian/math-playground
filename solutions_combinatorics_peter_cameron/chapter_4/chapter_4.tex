@@ -1,0 +1,11 @@
+\documentclass{article}
+\usepackage[skip=10pt]{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+
+1a. Let's call the number of solutions for $n$ seating positions arranged in a straight line as $S(n)$. In any such solution, either the $n$th seat is chosen or not. The number of solutions for the latter case is $S(n - 1)$, and that for the former case is $S(n - 2)$ (because when the $n$th seat is chosen, the $(n - 1)$th seat cannot be). Thus, $S(n) = S(n - 1) + S(n - 2)$. For the base case, we can easily see that $S(0) = 1$ (because the act of not choosing anything is itself a solution) and $S(1) = 2$ (because we can either choose the only seat or not). Thus, we see that $S(n)$ has the same recurrence as $F(n)$, the Fibonacci sequence, but $S(0) = F(1)$ and $S(1) = F(2)$. Therefore, by induction, $S(n) = F(n + 1)$. This concludes the proof.
+
+1b. Let's call the number of solutions for $n$ seating positions arranged in a circle as $T(n)$. We can see that almost any solution the problem where seats are arranged in a straight line can be a solution to the case where the seats are arranged in a circle. The only cases we must exclude are those where seat $1$ and seat $n$ are both chosen. For $n >= 4$, the number of such cases is $S(n - 4)$, since both $1$ and $n$ are chosen, neither seat $2$ nor seat $n - 1$ can be. So, the number of solutions for $n$ seats arranged in a circle is simply $S(n) - S(n - 4) = F(n + 1) - F(n - 3) = F(n) + F(n - 1) - F(n - 3) = F(n) + F(n - 2)$. For the cases $n = 3$ and $n = 2$, we can manually verify that this equation holds. This concludes the proof.
+
+\end{document}
