@@ -59,4 +59,6 @@ This concludes the proof by induction.
 
 Each cycle in a permutation acts independently of other cycles. Thus, the order of one cycle is completely independent of the order of another cycle in the same permutation. Now, we can see that repeatedly applying a permutation on an arrangement yields the original arrangement after $M$ applications where $M$ is a multiple of the orders of the individual cycles in the permutation. In particular, the order of the permutation must be the least such multiple. 
 
+11. Let's denote $k = n - m$, the count of non-repeating letters in the provided letter string. The number of generatable strings that contain $l$ instances of the repeated letter and some $r$ of the non-repeating letters is ${k \choose r} (l + r)! / l!$. This is because we can choose $r$ of the non-repeating letters from the $k$ non-repeated letters in $k \choose r$ ways, then arrange the total $l + r$ letters in $(l + r)! / l!$ ways because $l$ of the letters are identical. The desired result is then simply the sum of these counts for all values of $l$ and $r$ in the range $\{0 \cdots m\}$ and $\{0 \cdots k\}$ respectively.
+
 \end{document}
