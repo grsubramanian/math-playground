@@ -1,10 +1,26 @@
 \documentclass{article}
 \usepackage[skip=10pt]{parskip}
+\usepackage{amsmath}
 \begin{document}
 
 9. Any integer $n$ can be written as a product of prime powers. Say $n = \prod_{i = 1}^l {p_i}^{a_i}$. Then we can say that $f(n) = \prod_{i = 1}^l f({p_i}^{a_i})$, for any multiplicative function $f$, because the prime powers are relatively co-prime. Therefore, such a function is purely determined by its values on prime powers. This concludes the proof.
 
 10. Consider $g(ab)$ where $gcd(a, b) = 1$. By definition of $g(n)$, $g(ab) = \sum_{d | ab} f(d)$. But since $gcd(a, b) = 1$, any divisor of $ab$ can be written in the form $d_ad_b$ where $d_a | a$ and $d_b | b$. Therefore, $g(ab) = \sum_{d_a | a, d_b | b} f(d_ad_b)$. But since $f$ is multiplicative, we get $g(ab) = \sum_{d_a | a, d_b | b} f(d_a)f(d_b) = (\sum_{d_a | a} f(d_a))(\sum_{d_b | b} f(d_b)) = g(a)g(b)$, which implies that $g$ too is multiplicative. This concludes the proof.
+
+11. Consider $\mu(ab)$ where $gcd(a, b) = 1$. If either $a$ or $b$ is not square free, then both $\mu(ab) = 0 = \mu(a)\mu(b)$. If $a$ and $b$ are square free, then $ab$ is square free as well because $gcd(a, b) = 1$. And $\mu(ab)$ is $1$ or $-1$ depending on whether the parities of $\mu(a)$ and $\mu(b)$ match or not. Therefore $\mu(ab) = \mu(a)\mu(b)$, proving that $\mu(n)$ is a multiplicative function.
+
+It is easy to see that if $f(n)$ is multiplicative, then both $nf(n)$ and $f(n)/n$ are multiplicative. We'll combine these lemmas with the result of problem 10 to conclude that the function $f(n) = n \sum_{d | n} \mu(d) / d$ is also a multiplicative function.
+
+Now, by the results of problem 9, the values of any multiplicative function are purely determined by its values on prime powers. So, we'll evaluate $f(p^k)$ for some prime $p$ and some non-negative integer $k$. If we find that this value matches the value of $\phi(p^k)$ for all $k$, then we can infer that $\phi(n) = f(n) = n \sum_{d | n} \mu(d) / d$.
+
+\begin{align*}
+    f(p^k) &= p^k \sum_{d | p^k} \mu(d) / d \\
+    f(p^k) &= p^k \sum_{i \in \{0 \cdots k\}} \mu(p^i) / p^i \\
+    f(p^k) &= p^k ((1 / p^0) + (-1 / p^1) + 0 + 0 + ...) \\
+    f(p^k) &= p^k (1 - 1 / p)
+\end{align*}
+
+But we already know that $\phi(p^k) = p^k(1 - 1 / p)$. This concludes the proof.
 
 15a. Imagine a function $f(n) = 1$ for all values of $n$. Then, we can say that $\nu(n) = \sum_{d | n} 1 = \sum_{d | n} f(d)$. Thus, by the Mobius inversion theorem, $\sum_{d | n} \mu(n/d)\nu(d) = f(n) = 1$. This concludes the proof. 
 
