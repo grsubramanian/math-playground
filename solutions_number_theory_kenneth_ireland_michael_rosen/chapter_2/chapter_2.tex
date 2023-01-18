@@ -4,6 +4,8 @@
 
 9. Any integer $n$ can be written as a product of prime powers. Say $n = \prod_{i = 1}^l {p_i}^{a_i}$. Then we can say that $f(n) = \prod_{i = 1}^l f({p_i}^{a_i})$, for any multiplicative function $f$, because the prime powers are relatively co-prime. Therefore, such a function is purely determined by its values on prime powers. This concludes the proof.
 
+10. Consider $g(ab)$ where $gcd(a, b) = 1$. By definition of $g(n)$, $g(ab) = \sum_{d | ab} f(d)$. But since $gcd(a, b) = 1$, any divisor of $ab$ can be written in the form $d_ad_b$ where $d_a | a$ and $d_b | b$. Therefore, $g(ab) = \sum_{d_a | a, d_b | b} f(d_ad_b)$. But since $f$ is multiplicative, we get $g(ab) = \sum_{d_a | a, d_b | b} f(d_a)f(d_b) = (\sum_{d_a | a} f(d_a))(\sum_{d_b | b} f(d_b)) = g(a)g(b)$, which implies that $g$ too is multiplicative. This concludes the proof.
+
 15a. Imagine a function $f(n) = 1$ for all values of $n$. Then, we can say that $\nu(n) = \sum_{d | n} 1 = \sum_{d | n} f(d)$. Thus, by the Mobius inversion theorem, $\sum_{d | n} \mu(n/d)\nu(d) = f(n) = 1$. This concludes the proof. 
 
 15b. Imagine a function $f(n) = n$ for all values of $n$. Then, we can say that $\sigma(n) = \sum_{d | n} d = \sum_{d | n} f(d)$. Thus, by the Mobius inversion theorem, $\sum_{d | n} \mu(n/d)\sigma(d) = f(n) = n$. This concludes the proof.
