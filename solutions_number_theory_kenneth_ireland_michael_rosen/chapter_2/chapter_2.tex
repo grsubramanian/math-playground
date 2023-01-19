@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[skip=10pt]{parskip}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \begin{document}
 
 9. Any integer $n$ can be written as a product of prime powers. Say $n = \prod_{i = 1}^l {p_i}^{a_i}$. Then we can say that $f(n) = \prod_{i = 1}^l f({p_i}^{a_i})$, for any multiplicative function $f$, because the prime powers are relatively co-prime. Therefore, such a function is purely determined by its values on prime powers. This concludes the proof.
@@ -21,6 +22,26 @@ Now, by the results of problem 9, the values of any multiplicative function are 
 \end{align*}
 
 Now, let's calculate $\phi(p^k)$ from first principles. Since the only integers in the range $\{1 \cdots p^k\}$ that are not coprime with $p^k$ are the multiples of $p$, and there are $p^{k - 1}$ such multiples, $\phi(p^k) = p^k = p^{k - 1} = p^k(1 - 1 / p)$. This concludes the proof.
+
+12. From exercises 10 and 11, we have learned that $\mu(n)$ and $\phi(n)$ are multiplicative functions. Therefore, so are $\sum_{d | n} \mu(d) \phi(d)$, $\sum_{d | n} \mu(d)^2 \phi(d)^2$ and $\sum_{d | n} \mu(d) / \phi(d)$. This means that for any of these 3 functions, we can compute the value of the function for a given input $n$ by first computing the value of the function on all prime powers involved in $n$'s prime factorization, and then by multipliying these values. In all the equations below, we'll assume $n = p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}$.
+
+\begin{align*}
+    \sum_{d | p^k} \mu(d) \phi(d) &=  1(1) + (-1)(p - 1) + 0 + 0 + \cdots \\
+    \sum_{d | p^k} \mu(d) \phi(d) &=  2 - p \\
+    \therefore \sum_{d | n} \mu(d) \phi(d) &= \prod_{i = 1}^k (2 - p_i)
+\end{align*}
+
+\begin{align*}
+    \sum_{d | p^k} \mu(d)^2 \phi(d)^2 &=  1^2(1^2) + (-1)^2(p - 1)^2 + 0 + 0 + \cdots \\
+    \sum_{d | p^k} \mu(d)^2 \phi(d)^2 &=  p^2 - 2p + 2 \\
+    \therefore \sum_{d | n} \mu(d)^2 \phi(d)^2 &= \prod_{i = 1}^k (p_i^2 -2p_i + 2)
+\end{align*}
+
+\begin{align*}
+    \sum_{d | p^k} \mu(d) / \phi(d) &=  1 / 1 + (-1) / (p - 1) + 0 + 0 + \cdots \\
+    \sum_{d | p^k} \mu(d) / \phi(d) &=  (p - 2) / (p - 1) \\
+    \therefore \sum_{d | n} \mu(d) / \phi(d) &= \prod_{i = 1}^k (p_i - 2) / (p_i - 1)
+\end{align*}
 
 15a. Imagine a function $f(n) = 1$ for all values of $n$. Then, we can say that $\nu(n) = \sum_{d | n} 1 = \sum_{d | n} f(d)$. Thus, by the Mobius inversion theorem, $\sum_{d | n} \mu(n/d)\nu(d) = f(n) = 1$. This concludes the proof. 
 
