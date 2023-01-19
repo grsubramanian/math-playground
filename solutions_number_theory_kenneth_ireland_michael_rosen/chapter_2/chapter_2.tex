@@ -20,7 +20,7 @@ Now, by the results of problem 9, the values of any multiplicative function are 
     f(p^k) &= p^k (1 - 1 / p)
 \end{align*}
 
-But we already know that $\phi(p^k) = p^k(1 - 1 / p)$. This concludes the proof.
+Now, let's calculate $\phi(p^k)$ from first principles. Since the only integers in the range $\{1 \cdots p^k\}$ that are not coprime with $p^k$ are the multiples of $p$, and there are $p^{k - 1}$ such multiples, $\phi(p^k) = p^k = p^{k - 1} = p^k(1 - 1 / p)$. This concludes the proof.
 
 15a. Imagine a function $f(n) = 1$ for all values of $n$. Then, we can say that $\nu(n) = \sum_{d | n} 1 = \sum_{d | n} f(d)$. Thus, by the Mobius inversion theorem, $\sum_{d | n} \mu(n/d)\nu(d) = f(n) = 1$. This concludes the proof. 
 
