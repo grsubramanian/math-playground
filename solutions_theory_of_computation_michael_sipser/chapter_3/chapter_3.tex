@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage[skip=10pt]{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+
+10. Given that the polynomial has a root at $x_0$, we can say the following.
+
+\begin{align*}
+    c_1 {x_0}^n &+ c_2 {x_0}^{n - 1} + \cdots + c_n x_0 + c_{n + 1} = 0 \\
+    c_1 {x_0}^n &= -(c_2 {x_0}^{n - 1} + \cdots + c_n x_0 + c_{n + 1}) \\
+    |c_1 {x_0}^n| &= |c_2 {x_0}^{n - 1} + \cdots + c_n x_0 + c_{n + 1}| \\
+    |c_1 {x_0}^n| &<= |c_2 {x_0}^{n - 1}| + \cdots + |c_n x_0| + |c_{n + 1}| \\
+    |c_1 {x_0}^n| &<= |c_2| |{x_0}^{n - 1}| + \cdots + |c_n| |x_0| + |c_{n + 1}| \\
+    |c_1 {x_0}^n| &<= c_{max} (|{x_0}^{n - 1}| + \cdots + |x_0| + 1) \\
+\end{align*}
+
+Now, if $c_{n + 1} = 0$, then $x = 0$ is also a root of the polynomial. In that case, the given inequality holds true.
+
+Else, we must have $|x_0| >= 1$. Therefore, we get
+
+\begin{align*}
+    |c_1 {x_0}^n| &<= c_{max} n |{x_0}^{n - 1}| \\
+    |x_0| &<= n c_{max} / |c_1| \\
+    |x_0| &< (n c_{max} / |c_1|) + 1 \\
+          &<= (n c_{max} / |c_1|) + (c_{max}/|c_1|) \\
+          &<= (n + 1) c_{max} / |c_1| \\
+\end{align*}
+
+This concludes the proof.
+
+\end{document}
