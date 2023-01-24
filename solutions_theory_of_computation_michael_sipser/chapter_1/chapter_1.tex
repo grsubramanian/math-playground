@@ -35,6 +35,8 @@ For every state $q$ in $Q$, we'll create a copy state $copy(q)$. Call the set of
 
 This concludes the proof.
 
+42. We will construct a DFA such that when it has read a certain prefix of the string, the DFA is in a state that represents the remainder of that prefix modulo $n$. For any integer, there are $n$ possible remainders modulo $n$. Correspondingly, we create $n$ separate states and label them $0, 1, \cdots {n - 1}$. Naturally, the only accept state is state $0$. Assume we have read some prefix of the input and are at state $i$. If we read bit $b$ next, where $b \in \{0, 1\}$, then, the resulting integer is $(2i + b) \% n$ modulo $n$. Accordingly, we'd have two possible state transitions, one from state $i$ to state $(2i) \% n$ upon bit $0$, and from state $i$ to state $(2i + 1) \% n$ upon bit $1$. That completes the construction of the DFA, and thus the proof.
+
 43. We need to prove two things, firstly that for each regular language, we can construct an all-NFA that recognizes it, and secondly that any all-NFA recognizes a regular language. The first part is clear because for each regular language, we can construct a DFA, and a DFA is also an all-NFA. We prove the second part below by constructing a DFA equivalent to any given all-NFA.
 
 Given an all-NFA $(Q, \Sigma, \delta, q_0, F)$, construct an equivalent DFA $D$ as follows. We'll assume that $F$ is not empty, otherwise, it is trivial to construct an equivalent DFA, one that doesn't accept anything.
