@@ -35,4 +35,20 @@ For every state $q$ in $Q$, we'll create a copy state $copy(q)$. Call the set of
 
 This concludes the proof.
 
+43. We need to prove two things, firstly that for each regular language, we can construct an all-NFA that recognizes it, and secondly that any all-NFA recognizes a regular language. The first part is clear because for each regular language, we can construct a DFA, and a DFA is also an all-NFA. We prove the second part below by constructing a DFA equivalent to any given all-NFA.
+
+Given an all-NFA $(Q, \Sigma, \delta, q_0, F)$, construct an equivalent DFA $D$ as follows. We'll assume that $F$ is not empty, otherwise, it is trivial to construct an equivalent DFA, one that doesn't accept anything.
+
+\begin{align*}
+    Q_D                                                  &= P(Q) \\
+    \Sigma_D                                             &= \Sigma \\
+    \delta_D((\{q_{a_1}, q_{a_2}, \cdots q_{a_k}\}), c)  &\rightarrow (\cup_{i=1}^k eps(\delta(q_{a_i}, c))) \\
+    q_{0D}                                               &= (eps(q_0)) \\
+    F_D                                                  &= P(F) \setminus \{\}
+\end{align*}
+
+This construction is very similar to the one used to prove that NFAs are equivalent to DFAs. We create a separate state in the DFA to represent each subset of states of the all-NFA (to represent the idea that the all-NFA could be in any subset of its states at a given point of time in its execution). The transition function of the DFA builds on the transition function of the all-NFA in such a manner that when the all-NFA transits from some subset of states to another subset of states upon a certain symbol, the DFA transits from the state that represents the first subset to the state that represents the $\epsilon$ closure of the second subset. The DFA starts out the state that represents the $\epsilon$ closure of the start state. And finally, by making sure that the states of the DFA that correspond to the subsets of the powerset of the all-NFA's final states (except the empty set) are the final states of the DFA, we ensure that the DFA accepts a string if an only if the all-NFA accepts it.
+
+This concludes the proof.
+
 \end{document}
