@@ -53,4 +53,18 @@ This construction is very similar to the one used to prove that NFAs are equival
 
 This concludes the proof.
 
+44. We have to demonstrate a language $A_k \subseteq \{0, 1\}^*$ for which there is a $k$ state DFA, but for which there cannot be a $k - 1$ state DFA. Consider the language $A_k = \{w^r | w \in \{0, 1\} \land (r \equiv {k - 1} \mod k) \}$, i.e. the language of strings whose length is $k - 1 \mod k$. It is easy to see that the following $k$ state DFA recognizes it. 
+
+\begin{align*}
+    Q             &= \{0, 1, \cdots {k - 1}\} \\
+    \Sigma        &= \{0, 1\} \\
+    \delta(q, 0)  &= (q + 1) \% k \\
+    \delta(q, 1)  &= (q + 1) \% k \\
+    q_0           &= 0 \\
+    F             &= k - 1
+\end{align*}
+
+Now, let us suppose that there were some $k - 1$ state DFA that also recognizes this language. Obviously, the DFA must accept a $k - 1$ length string, because a $k - 1$ length string belongs in the above language $A_k$. Further, the DFA must visit exactly $k$ states while operating on this string. Since the DFA has only $k - 1$ states, two of these $k$ states must be the same (due to the pigeonhole principle). If we snip off the substring that was observed by the DFA between two visits to this state, we'd be left with a string of length smaller than $k - 1$ but that is also accepted by this DFA. This is a contradiction because a string of length smaller than $k - 1$ cannot be $\equiv {k - 1} \mod k$ and therefore does not belong to the above language $A_k$. Therefore, it must be that the above language $A_k$ cannot be recognized by a DFA with $k - 1$ states (or fewer for that matter). This concludes the proof.
+
+
 \end{document}
