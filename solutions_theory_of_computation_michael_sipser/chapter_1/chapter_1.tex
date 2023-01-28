@@ -71,4 +71,8 @@ Now, let us suppose that there were some $k - 1$ state DFA that also recognizes 
 
 Now consider the string $1^p \# 1^q$, which clearly $D_Y$ must accept because $q \ne p$. Combining with the previous argument, we can conclude that $D_Y$ must be left in the same state after parsing $1^q \# 1^q$ as it does $1^p \# 1^q$, and thus $D_Y$ must also accept $1^q \# 1^q$. However, this string does not belong to $Y$. Since we started with the assumption that $D_Y$ recognizes $Y$, we have arrived at a contradiction, which implies that $Y$ is not regular. This concludes the proof.
 
+55. Consider two different strings $x$ and $y$ of length $k$. We first prove the lemma that any DFA that recognizes the language $C_k$ must be left in a different state after reading $x$ compared to after reading $y$. If not, consider the rightmost position in $x$ and $y$ where they differ. Say that this is position $i$ (1-indexed) from the left. WLOG, say that $x[i] = a$ and $y[i] = b$. If we append the string $b^{i - 1}$ to both strings, then we get $x' = x[0] x[1] \cdots x[i - 1] a x[i + 1] \cdots x[k] b^{i - 1}$ and $y' = y[0] y[1] y[i - 1] \cdots b y[i + 1] \cdots y[k] b^{i - 1}$. Clearly, the DFA must accept the $x'$, but not $y'$, because only $x'$ has an $a$ exactly $k$ positions from the right. However, by assumption, the DFA entered the same state upon reading $x$ and $y$, and therefore must enter the same state upon reading $x'$ and $y'$ too. This contradiction concludes the proof of the lemma.
+
+Thus, the number of states in the DFA can be no less than the number of different strings of length $k$ constructed from the alphabet $\{a, b\}$, which is $2^k$.
+
 \end{document}
