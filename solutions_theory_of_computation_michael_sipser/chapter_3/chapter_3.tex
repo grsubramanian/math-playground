@@ -29,4 +29,62 @@ Else, we must have $|x_0| >= 1$. Therefore, we get
 
 This concludes the proof.
 
+20. We'll demonstrate that the stay-put Turing machine recognizes the class of regular languages. It is easy to see that a stay-put Turing machine that always moves the tape head to the right on each symbol and finally enters either the accept or reject state without looping forever is equivalent to a DFA. Even though the stay-put Turing machine may write onto the tape, the written contents will always be to the left of the tape head and never influence the execution of the machine.
+
+Now, we'll take a general stay-put Turing machine and transform it one step at a time into the above special form, which will conclude the proof.
+
+Say we are given some general stay-put Turing machine $M = (Q, \Sigma, \Gamma, \delta, q_0, q_{accept}, q_{reject})$. We'll build $M' = (Q, \Sigma, \Gamma, \delta', q_0, q_{accept}, q_{reject})$ another stay-put Turing machine with the special form described above, as follows.
+
+Firstly, for each transition of the form $\delta(q, a) \rightarrow (q_{special}, b, d)$ in $M$ where $q_{special} \in \{q_{accept}, q_{reject}\}$ and $d \in \{S, R\}$, we will add a transition of the form $\delta'(q, a) \rightarrow (q_{special}, b, R)$ in $M'$. This captures the idea that during the transition into an accept or reject state, it is irrelevant whether the machine keeps the tape head stay put or moves it to the right.
+
+Secondly, starting at every state and symbol, we'll search for all instances of the below sequence of transitions in $M$
+
+\begin{align*}
+    \delta(q_1, t_1)             & \rightarrow (q_2, t_2, S) \\
+    \delta(q_2, t_2)             & \rightarrow (q_3, t_3, S) \\
+    \cdots \\
+    \delta(q_{k - 1}, t_{k - 1}) & \rightarrow (q_k, t_k, S) \\
+    \delta(q_k, t_k)             & \rightarrow (q_{k + 1}, t_{k + 1}, R)
+\end{align*}
+
+And correspondingly add only the following (effective) transition to $M'$. This ensures that we get rid of pointless stay-put transitions.
+
+\begin{align*}
+    \delta'(q_1, t_1) & \rightarrow (q_{k + 1}, t_{k + 1}, R)
+\end{align*}
+
+Thirdly, starting at every state and symbol, we'll search for instances of the below sequence of transitions in $M$
+
+\begin{align*}
+    \delta(q_1, t_1)             & \rightarrow (q_2, t_2, S) \\
+    \delta(q_2, t_2)             & \rightarrow (q_3, t_3, S) \\
+    \cdots \\
+    \delta(q_k, t_k)             & \rightarrow (q_i, t_i, S) | i \in \{1, 2, \cdots , k\}
+\end{align*}
+
+And correspondingly add the following (effective) transition to $M'$. This ensures that the machine won't get stuck in an endless loop due to staying put.
+
+\begin{align*}
+    \delta'(q_1, t_1) & \rightarrow (q_{reject}, \sqcup, R)
+\end{align*}
+
+These efforts will have got rid of all transitions that cause the tape head to stay put. Finally, starting at every state and symbol, we'll search for instances of the below sequence of transitions in $M$
+
+\begin{align*}
+    \delta(q_1, t_1)             & \rightarrow (q_2, t_2, R) \\
+    \delta(q_2, t_2)             & \rightarrow (q_3, t_3, R) \\
+    \cdots \\
+    \delta(q_k, t_k)             & \rightarrow (q_i, t_i, R) | i \in \{1, 2, \cdots , k\}
+\end{align*}
+
+And correspondingly add the following (effective) transition to $M'$. This ensures that the machine won't get stuck in an endless loop moving the tape head rightwards.
+
+\begin{align*}
+    \delta'(q_1, t_1) & \rightarrow (q_{reject}, \sqcup, R)
+\end{align*}
+
+Now, for any transition in $M$ not already discarded through the above methods, add them into $M'$.
+
+$M'$ is a stay-put Turing machine that never stays put (i.e moves the tape head right each step), and never gets stuck in a loop. Therefore, we have completed our desired construction, thus concluding the proof.
+
 \end{document}
