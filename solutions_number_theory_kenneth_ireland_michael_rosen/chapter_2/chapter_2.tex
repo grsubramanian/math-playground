@@ -50,4 +50,22 @@ Now, let's calculate $\phi(p^k)$ from first principles. Since the only integers 
 16. Let's say that $n = p_1^{a_1} p_2^{a_2} \cdots p_l^{a_l}$. Then we know that $\nu(n) = \prod_{i = 1}^l (a_i + 1)$. We can infer that $\nu(n)$ is odd iff each of the terms on the RHS is odd i.e. if $a_i$ is even i.e. $n$ is a square. This concludes the proof.
 
 17. Let's say that $n = p_1^{a_1} p_2^{a_2} \cdots p_l^{a_l}$. Then we know that $\sigma(n) = \prod_{i = 1}^l \sum_{j = 0}^{a_i} p_i^j$. We can infer that $\sigma(n)$ is odd iff each of the terms on the RHS is odd. i.e. $\sum_{j = 0}^{a_i} p_i^j$ is odd. If $p_i$ is odd, then this sum is odd iff $a_i$ is even. If $p_i$ is even (i.e. equal to $2$, the only even prime), then this sum is always odd irrespective of whether $a_i$ is even or odd. Thus, the condition is met iff $n$ is either a square or $2$ times a square. 
+
+25. The Riemann zeta function $\zeta(s)$ is defined as $\zeta(s) = \sum_{i = 1}^\infty (1 / i^s)$. Consider all terms where the denominator's prime factorization contains ${p_1}^{js}$ (where $j$ is obviously a non-negative integer). Group those terms (an $\infty$ of them) and extract $1 / {p_1}^{js}$ as a common factor, wherein the other factor is an infinite sum which we'll denote $\zeta(s, p_1)$. Note that this construction made no assumptions about the actual value of $j$, so we should be able to independently do this for each non-negative integer $j$. Thus, we have,
+
+\begin{align*}
+    \zeta(s) &= (1 / {p_1}^{0s}) \zeta(s, p_1) + (1 / {p_1}^{1s}) \zeta(s, p_1) + (1 / {p_1}^{2s}) \zeta(s, p_1) + \cdots \\
+    \zeta(s) &= (1 + (1 / {p_1}^s) + (1 / {p_1}^s)^2 + \cdots) \zeta(s, p_1) \\
+    \zeta(s) &= (1 - (1 / {p_1}^s))^{-1} \zeta(s, p_1) \\
+\end{align*}
+
+Now, note that $\zeta(s, p_1)$ has no occurrence of the prime $p_1$ in it. Aside from that, it is identical to $\zeta(s)$. So, we can perform a similar procedure by extracting out yet another prime $p_2$ out of $\zeta(s, p_1)$, and repeatedly simplifying the above expression. It is clear that this procedure will help derive the following.
+
+\begin{align*}
+    \zeta(s) &= (1 - (1 / {p_1}^s))^{-1} (1 - (1 / {p_2}^2))^{-1} \cdots \\
+    \zeta(s) &= \prod_p (1 - (1 / p^s))^{-1}
+\end{align*}
+
+This concludes the proof.
+
 \end{document}
