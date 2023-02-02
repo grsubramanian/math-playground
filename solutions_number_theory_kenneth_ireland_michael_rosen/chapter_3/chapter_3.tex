@@ -10,4 +10,18 @@ We next prove that $aa_i$ is not $\equiv aa_j \mod(n)$ if $i \ne j$. If not, $aa
 
 This implies that if $a_1, a_2, \cdots a_{\phi(n)}$ is a reduced residue modulo $n$, so is $aa_1, aa_2, \cdots aa_{\phi(n)}$. This concludes the proof.
 
+7. Consider the set of integers $< n$ that are coprime to $n$. Call these $a_1, a_2, \cdots a_{\phi(n)}$. Clearly these form a reduced residue system modulo $n$. Now for any $a$ such that $gcd(a, n) = 1$, we know from exercise 6 above that $aa_1, aa_2, \cdots aa_{\phi(n)}$ is also a reduced residue system modulo $n$.
+
+Now, for any $i$, $aa_i = qn + r_i$, where $0 < r_i < n$ and $gcd(r_i, n) = 1$. In other words, $r_i = a_j$ for some $j$. Thus, for each $i$, there is a unique $j$ such that $aa_i \equiv a_j \mod(n)$.
+
+Therefore,
+
+\begin{align*}
+    aa_1 aa_2 \cdots aa_{\phi(n)} & \equiv a_1 a_2 \cdots a_{\phi(n)} \mod(n) \\
+    a^{\phi(n)} a_1 a_2 \cdots a_{\phi(n)} & \equiv a_1 a_2 \cdots a_{\phi(n)} \mod(n) \\
+    \therefore a^{\phi(n)} & \equiv 1 \mod(n)
+\end{align*}
+
+where the last line is due to the fact that we can cancel out the term $a_1 a_2 \cdots a_{\phi(n)}$ on both sides due to it being relatively coprime to $n$. This concludes the proof. 
+
 \end{document}
