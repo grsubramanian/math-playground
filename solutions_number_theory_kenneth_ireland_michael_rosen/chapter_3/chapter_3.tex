@@ -1,0 +1,13 @@
+\documentclass{article}
+\usepackage[skip=10pt]{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+
+6. Since $gcd(a_i, n) = 1$ for any $i$, and $gcd(a, n) = 1$, it is obvious that $gcd(aa_i, n) = 1$ for any $i$.
+
+We next prove that $aa_i$ is not $\equiv aa_j \mod(n)$ if $i \ne j$. If not, $aa_i \equiv aa_j \mod(n)$, and $n | a(a_i - a_j)$. However, since $gcd(a, n) = 1$, this implies that $n | (a_i - a_j)$ or in other words $a_i \equiv a_j \mod(n)$, which is a contradiction.
+
+This implies that if $a_1, a_2, \cdots a_{\phi(n)}$ is a reduced residue modulo $n$, so is $aa_1, aa_2, \cdots aa_{\phi(n)}$. This concludes the proof.
+
+\end{document}
