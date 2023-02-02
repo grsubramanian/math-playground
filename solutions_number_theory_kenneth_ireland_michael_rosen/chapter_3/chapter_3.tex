@@ -24,4 +24,12 @@ Therefore,
 
 where the last line is due to the fact that we can cancel out the term $a_1 a_2 \cdots a_{\phi(n)}$ on both sides due to it being relatively coprime to $n$. This concludes the proof. 
 
+8. We know that $kx \equiv 1 \mod(p)$ must have exactly one unique solution since $gcd(k, p) = 1$. If the solution has the form $qp + r$, where $0 < r < p$, then $k(qp + r) \equiv 1 \mod(p)$, which leads to $kr \equiv 1 \mod(p)$. This proves that the there is some unique solution from the set $\{1, 2, \cdots (p - 1)\}$.
+
+Further if $x = k$ is a solution for $kx \equiv 1 \mod(p)$, then $p | (k^2 - 1)$. i.e. $p | (k + 1)(k - 1)$. This is only possible if one of these terms is either $0$ or $p$, which happens iff $k = 1$ or $k = p - 1$.
+
+This concludes the proof.
+
+9. In light of the solution to problem 8, $(p - 1)!$ can be thought of as products of pairs of integers $k$ and $b_k$ such that $kb_k \equiv 1 \mod(p)$, except the terms $1$ and $(p - 1)$, which don't have the appropriate pairing. Therefore, $(p - 1)! \equiv 1 (p - 1) \mod(p)$ i.e. $(p - 1)! \equiv -1 \mod(p)$. This concludes the proof.
+
 \end{document}
