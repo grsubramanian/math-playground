@@ -32,4 +32,18 @@ This concludes the proof.
 
 9. In light of the solution to problem 8, $(p - 1)!$ can be thought of as products of pairs of integers $k$ and $b_k$ such that $kb_k \equiv 1 \mod(p)$, except the terms $1$ and $(p - 1)$, which don't have the appropriate pairing. Therefore, $(p - 1)! \equiv 1 (p - 1) \mod(p)$ i.e. $(p - 1)! \equiv -1 \mod(p)$. This concludes the proof.
 
+15. The numerator of $1 + (1 / 2) + \cdots (1 / (p - 1))$ is obtained by multiplying the expression by $(p - 1)!$. The numerator can then be expressed as the sum $\sum_{k = 1}^{p - 1} (p - 1)! / k$.
+
+First consider the very first term in this sum. It is equal to $(p - 1)!$ which is $\equiv -1 \mod(p)$ (due to problem 9, Wilson's theorem). Next consider the last term $(p - 1)! / (p - 1)$, which is $\equiv 1 \mod(p)$ (due to problem 9, Wilson' theorem, and because $(p - 1) \equiv -1 \mod(p)$). Thus, the first and last terms cancel each other out and become $\equiv 0 \mod(p)$.
+
+Now, onto the other terms. Consider the $k$th term. Given problem 8's solution, we can say that the $k$th term is $\equiv (p - 1) b_k \mod(p)$, because we can pair of all other integers and reduce those multiples to be $\equiv 1 \mod(p)$. Putting it all together, we can say that the remaining terms are $\equiv (p - 1) \sum_{k = 2}^{p - 2} k \mod(p)$. Let's see what this simplifies to.
+
+\begin{align*}
+    \equiv & (p - 1) \sum_{k = 2}^{p - 2} k & \mod(p) \\ 
+    \equiv & (p - 1) (((p - 1)(p - 2) / 2) - 1) & \mod(p) \\ 
+    \equiv & -1 ((- 1)(- 2) / 2) - 1) & \mod(p) \\ 
+    \equiv & 0 & \mod(p)
+\end{align*}
+
+Therefore, the numerator is divisible by $p$. This concludes the proof.
 \end{document}
