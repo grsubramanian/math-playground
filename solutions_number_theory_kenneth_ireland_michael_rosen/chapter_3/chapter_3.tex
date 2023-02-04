@@ -32,6 +32,18 @@ This concludes the proof.
 
 9. In light of the solution to problem 8, $(p - 1)!$ can be thought of as products of pairs of integers $k$ and $b_k$ such that $kb_k \equiv 1 \mod(p)$, except the terms $1$ and $(p - 1)$, which don't have the appropriate pairing. Therefore, $(p - 1)! \equiv 1 (p - 1) \mod(p)$ i.e. $(p - 1)! \equiv -1 \mod(p)$. This concludes the proof.
 
+12. Consider $p \choose k$, where $p$ is prime, and $k \in \{1, 2, \cdots (p - 1)\}$. ${p \choose k} = p! / (k! (p - k)!)$ has the term $p$ in the numerator, which none of the terms in the denominator divide (given that they are all smaller than $p$, and $p$ is prime). Since ${p \choose k}$ is itself an integer, it must be an integer of the form $pq$ for some integer $q >= 1$, and is thus divisible by $p$.
+
+By the binomial theorem,
+
+\begin{align*}
+               (a + 1)^p &= \sum_{i = 0}^p {p \choose i} a^i \\
+                         &= (a^p + 1) + \sum_{i = 1}^{p - 1} {p \choose i} a^i \\
+    \therefore (a + 1)^p &\equiv (a^p + 1) \mod(p)
+\end{align*}
+
+This concludes the proof.
+
 15. The numerator of $1 + (1 / 2) + \cdots (1 / (p - 1))$ is obtained by multiplying the expression by $(p - 1)!$. The numerator can then be expressed as the sum $\sum_{k = 1}^{p - 1} (p - 1)! / k$.
 
 First consider the very first term in this sum. It is equal to $(p - 1)!$ which is $\equiv -1 \mod(p)$ (due to problem 9, Wilson's theorem). Next consider the last term $(p - 1)! / (p - 1)$, which is $\equiv 1 \mod(p)$ (due to problem 9, Wilson' theorem, and because $(p - 1) \equiv -1 \mod(p)$). Thus, the first and last terms cancel each other out and become $\equiv 0 \mod(p)$.
