@@ -29,6 +29,12 @@ Else, we must have $|x_0| >= 1$. Therefore, we get
 
 This concludes the proof.
 
+12. Let's say $L$ is an infinite Turing recognizable language. Then some enumerator $E$ enumerates it. We build another enumerator $E'$ as follows. $E'$ runs $E$, and for each string printed by $E$, checks if it is larger in terms of standard string order than the previous string (if any) printed by $E'$. If yes, then $E'$ prints it as is. If no, then $E'$ discards it.
+
+Now, consider the language $L'$ enumerated by $E'$. Firstly, note that $L'$ is infinite, because if it were not, then the last string printed by $E'$ would indeed be the largest string in $L$ in standard string order, which would violate the assumption that $L$ is infinite. Secondly, just like we did in problem 13, we can use $E'$ to build a decider for $L'$.
+
+Thus, we have constructed an infinite decidable language $L'$ that is a subset of $L$. This concludes the proof.
+
 13. There are two sides to this proof.
 
 For the first direction, say we are given an enumerator $E$ that enumerates the language $L$ in standard string order. Then we can use this to build a decider $D$ for $L$. On a given input $w$, $D$ runs the enumerator $E$ until either it prints $w$ or some string $w'$ larger than $w$ in standard string order. This way, $D$ terminates on any given input, and accepts $w$ iff $w \in L$.
