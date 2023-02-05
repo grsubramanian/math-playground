@@ -29,6 +29,14 @@ Else, we must have $|x_0| >= 1$. Therefore, we get
 
 This concludes the proof.
 
+13. There are two sides to this proof.
+
+For the first direction, say we are given an enumerator $E$ that enumerates the language $L$ in standard string order. Then we can use this to build a decider $D$ for $L$. On a given input $w$, $D$ runs the enumerator $E$ until either it prints $w$ or some string $w'$ larger than $w$ in standard string order. This way, $D$ terminates on any given input, and accepts $w$ iff $w \in L$.
+
+For the second direction, say we are given a decider $D$ that decides $L$. Then, we can build an enumerator $E$ for $L$ as follows. $E$ steps through all strings in the alphabet in standard string order, and for each invokes $D$ to determine whether it belongs to $L$ or not. $E$ prints $w$ iff $w \in L$.
+
+This concludes the proof.
+
 20. We'll demonstrate that the stay-put Turing machine recognizes the class of regular languages. It is easy to see that a stay-put Turing machine that always moves the tape head to the right on each symbol and finally enters either the accept or reject state without looping forever is equivalent to a DFA. Even though the stay-put Turing machine may write onto the tape, the written contents will always be to the left of the tape head and never influence the execution of the machine.
 
 Now, we'll take a general stay-put Turing machine and transform it one step at a time into the above special form, which will conclude the proof.
