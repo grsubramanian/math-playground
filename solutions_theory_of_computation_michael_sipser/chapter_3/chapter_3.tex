@@ -37,6 +37,10 @@ For the second direction, say we are given a decider $D$ that decides $L$. Then,
 
 This concludes the proof.
 
+14. Since $B$ is Turing recognizable, some enumerator $E$ enumerates it. We'll build another enumerator $E'$ that does the following. $E'$ runs $E$, and for each TM description printed by $E$, checks if it is larger in terms of standard string order than the previous printed TM description. If yes, then $E'$ prints it as is. If no, then $E'$ modifies the TM description somehow to make it larger in terms of standard string order than the previous printed TM description, without altering the effective behavior of the TM, and then prints it. This can be done for example by adding extra (unused) states to the TM.
+
+We can clearly see that $E'$ enumerates $C$, a language consisting of TM descriptions equivalent to those in $B$, in standard string order. Just like we did in problem 13, we can use this enumerator to build a decider for $C$. This concludes the proof.
+
 20. We'll demonstrate that the stay-put Turing machine recognizes the class of regular languages. It is easy to see that a stay-put Turing machine that always moves the tape head to the right on each symbol and finally enters either the accept or reject state without looping forever is equivalent to a DFA. Even though the stay-put Turing machine may write onto the tape, the written contents will always be to the left of the tape head and never influence the execution of the machine.
 
 Now, we'll take a general stay-put Turing machine and transform it one step at a time into the above special form, which will conclude the proof.
