@@ -1,0 +1,11 @@
+\documentclass{article}
+\usepackage[skip=10pt]{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+
+12. Given that $L$ is Turing recognizable, some enumerator $E$ enumerates $L$. Consider another TM $D$ that operates as follows. For a given input $i$, $D$ runs $E$ until it prints $<M_i>$, the $i$th item. Then $D$ runs $M_i$ on input $i$. Finally, if $M_i$ accepts, $D$ rejects, and if $M_i$ rejects, $D$ accepts. Clearly, $D$ always terminates on all inputs, and is thus a decider itself. Let's call the (decidable) language of $D$ as $L_D$.
+
+Now, let's assume that there is some $<M> \in L$ such that $M$ decides $L_D$. Then $<M>$ must appear at some index $k$ in the enumeration done by $E$. Now, since $M$ and $D$ are both deciders for $L_D$, $M$ must accept input $k$ iff $D$ accepts input $k$. However, by definition, $D$ rejects $k$ if $M$ accepts $k$. Therefore, our supposition that such a TM $M$ exists is wrong, which implies that the language $L_D$ has no decider in $L$. This concludes the proof.
+
+\end{document}
