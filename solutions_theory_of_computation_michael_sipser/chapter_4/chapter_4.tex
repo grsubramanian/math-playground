@@ -31,4 +31,8 @@ Secondly, we need to prove that $B \subseteq \overline{C}$. Consider the executi
 
 This implies that the decidable language $C$ (decided by $T$) divides $A$ and $B$, thus concluding the proof.
 
+24. There are two directions to prove. Firstly, say we have a decidable language $D$ such that $C = \{x \mid \exists{y} (<x, y> \in D)\}$. Then there must be some decider for $D$. Call it $M_D$. We'll use this to construct a recognizer $M_C$ for $C$ that operates as follows. For a given input $x$, $M_c$ enumerates all strings in lexicographic order and for each such string $y$ invokes $M_D$ on the input $<x, y>$. This is guaranteed to terminate if $x \in C$. Therefore, $M_C$ is a recognizer for $C$, and as such $C$ is a Turing recognizable language.
+
+Secondly, say that $C$ indeed were a Turing recognizable language. Then, there must be some enumerator $E_C$ that enumerates $C$. We'll use this to construct a decider $M_D$ that operates as follows. For a given input $<x, y>$, $M_D$ runs $E_C$ for upto $y$ steps, then checks if $E_C$ printed $x$, and finally accepts if it did, and rejects if it did not. Clearly, $M_D$ is a decider since it terminates on all inputs. Further, it decides a language $D$ such that $C = \{x \mid \exists{y} (<x, y> \in D)\}$. This concludes the proof.
+
 \end{document}
