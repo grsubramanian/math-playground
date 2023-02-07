@@ -23,4 +23,12 @@ Now, we can see from the above construction that $N^r$ (and thus also $D^r$) acc
 
 Now, consider a TM $M$ that for any given DFA description $<d>$, performs the above DFA transformation procedure on $d$, and then checks whether $d$ and $d^r$ are equivalent. The transformation procedure itself takes a finite number of steps. Further, we know (from chapter 4 text) that the problem of determining whether two DFAs are equivalent is decidable, and thus can also be done in a finite number of steps. Therefore the TM $M$ is a decider. In fact, it decides the language $S = \{ <D> \mid D \text{ is a DFA that accepts } w^r \text{ iff it accepts } w \}$. This concludes the proof.
 
+22. Given that $A$ and $B$ are co-Turing recognizable, there are recognizers for $\overline{A}$ and $\overline{B}$. Call these $M$ and $N$. Consider a TM $T$ that operates as follows. For a given input $w$, it runs $M$ and $N$ one step at a time taking turns, and accepts if $N$ accepts first, else rejects. Because $A$ and $B$ are disjoint, either $M$ or $N$ terminates on any given input. Therefore $T$ is a decider. Call the language of $T$ as $C$.
+
+Now, we need to prove two things. Firstly, we need to prove that $A \subseteq C$. Consider the execution of $T$ on any input $w \in A$. In that execution, $N$ accepts the input and $M$ rejects that input (or loops forever). Finally, $T$ accepts the input, and thus $w \in C$. Therefore $A \subseteq C$.
+
+Secondly, we need to prove that $B \subseteq \overline{C}$. Consider the execution of $T$ on any input $w \in \overline{B}$. In that execution, $N$ accepts the input. If it accepts first, $T$ accepts and $w \in C$ else $T$ rejects and $w \notin C$. Therefore, $C \subseteq \overline{B}$. Since $A$ and $B$ are disjoint, this implies that $B \subseteq \overline{C}$.
+
+This implies that the decidable language $C$ (decided by $T$) divides $A$ and $B$, thus concluding the proof.
+
 \end{document}
