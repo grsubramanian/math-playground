@@ -1,0 +1,12 @@
+\documentclass{article}
+\usepackage[skip=10pt]{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+
+19. Consider a TM $M$ that works as follows. On input $x$, $M$ computes the sequence $f(x), f(f(x)), f(f(f(x))), \cdots$, until the sequence hits $1$. If it hits $1$, $M$ accepts. Even if $M$ runs forever on some input, we can use $H$ to determine in a finite number of steps whether $M$ accepts or not.
+
+Now, consider another TM $N$ that works as follows. On input $w$, it neglects $w$ and for each natural number $i$, starting at $1$, runs $H$ on $<M, i>$. If $H$ rejects, then $N$ accepts. If $H$ accepts, then $N$ proceeds onto the next natural number. Clearly, $N$ accepts iff there were a counter-example to the $3x + 1$ problem, else it runs forever.
+
+Now, run $H$ on $<N, w>$. If $H$ accepts, then it indicates that there is a counter-example to the $3x + 1$ problem; we can now run $N$ confidently and hope to obtain the actual counter-example. If $H$ rejects, then that indicates that no such counter-example exists.
+\end{document}
