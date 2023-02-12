@@ -9,4 +9,18 @@
 Now, consider another TM $N$ that works as follows. On input $w$, it neglects $w$ and for each natural number $i$, starting at $1$, runs $H$ on $<M, i>$. If $H$ rejects, then $N$ accepts. If $H$ accepts, then $N$ proceeds onto the next natural number. Clearly, $N$ accepts iff there were a counter-example to the $3x + 1$ problem, else it runs forever.
 
 Now, run $H$ on $<N, w>$. If $H$ accepts, then it indicates that there is a counter-example to the $3x + 1$ problem; we can now run $N$ confidently and hope to obtain the actual counter-example. If $H$ rejects, then that indicates that no such counter-example exists.
+
+25. Suppose $T = \{<M> \mid M \text{ is a TM that accepts } w^R \text{ whenever it accepts } w \}$ is decidable. Then some TM $H$ decides it. We'll use this to build a decider $N$ for $A_{TM}$.
+
+$N$ works as follows. On input $<M, w>$, $N$ does the following.
+
+\begin{enumerate}
+    \item constructs a TM $M'$, which works as follows. On input $x$, $M'$ runs $M$ on $w$. If $M$ accepts, $M'$ accepts. Else, $M'$ accepts $x$ iff $x$ is lexicographically smaller than $x^R$.
+    \item runs $H$ on $<M'>$. If $H$ accepts, then $N$ accepts, else rejects.
+\end{enumerate}
+
+Clearly $N$ accepts $<M, w>$ iff $H$ accepts $<M'>$. By definition, $H$ accepts $<M'>$ iff $<M'> \in T$. Now, given the above construction, if $M$ accepts $w$, then $M'$ accepts all strings and thus $\in T$. And if $M$ does not accept $w$, then $M'$ only accepts lexicographically smaller counterpart strings (e.g. $ab$ but not $ba$) and thus is not $\in T$. Thus, $<M'> \in T$ iff $M$ accepts $w$.
+
+Putting all this together, we see that $N$ accepts $<M, w>$ iff $M$ accepts $w$, implying that $N$ is a decider for $A_{TM}$. This contradicts the fact that $A_{TM}$ is undecidable. Therefore, such a decider $H$ (and thus such a decider $N$) cannot exist. This concludes the proof.
+
 \end{document}
