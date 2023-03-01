@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage[skip=10pt]{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+
+24. We construct a polynomial time decider for $2SAT = \{\phi \mid \phi \text{ is a 2CNF boolean formula that is satisfiable}\}$ as follows.
+
+The decider first checks that the given string is a valid encoding of a binomial formula in 2CNF form. If not, it rejects.
+
+The decider then encodes the formula into a graph as follows. Firstly, it creates two nodes named $T$ and $F$ representing absolute truth and falsehood, and then adds an edge between them. This captures the fact that the boolean value of true and the boolean value of false have opposite boolean values.
+
+Then the decider loops through the variables of the formula, and for each variable (call it $x$), constructs two nodes, one representing the $x$ being true, which we'll refer to as $T(x)$, and another representing $x$ being false, which we'll refer to as $F(x)$. The decider then adds an edge between $T(x)$ and $F(x)$. The edge is meant to capture the fact that a variable can't be set to both true and false in a given assignment. From here on, we'll use the shorthand $T(\overline{x}) = F(x)$ and $F(\overline{x}) = T(x)$.
+
+Then the decider loops through the clauses and does the following. For clauses of the form $y \lor y$, since they reduce to $y$, the decider adds an edge between $T(y)$ and $F$. This captures the fact that $y$ must be true in any satisfying assignment. For clauses of the form $y \lor w$ where $y \ne w$, the decider adds an edge between $F(y)$ and $F(w)$. This captures the fact that both $y$ and $w$ can't be false in a satisfying assignment.
+
+The graph construction is now complete. Finally, the decider runs 2-coloring on the graph (with two colors true and false), coloring adjacent nodes with opposite colors, starting with the node $T$ and coloring it with the color true. If it is able to obtain a 2-coloring without the need to color some node with both colors, then it declares the given formula as satisfiable. Else, not.
+
+We'll now prove the correctness of this decision procedure. First, if the given formula is satisfiable, then we can obtain a 2-coloring of the corresponding graph as follows. If variable $x$ is set to true, then color the node $T(x)$ true and $F(x)$ false. If variable $x$ is set to false, then color the node $T(x)$ false and $F(x)$ true. Then color node $T$ true, and node $F$ false. It is clear that this produces a valid 2-coloring because all nodes are colored and no two adjacent nodes are colored the same (given how we have constructed the graph).
+
+Now, we prove the converse. If the graph has a 2-coloring, then we can obtain an assignment as follows. If for variable $x$, $T(x)$ is colored true (and therefore $F(x)$ colored false), then set $x$ to true. Else set $x$ to false. Given how we have constructed the graph and the fact that we color the node $T$ true always, it is clear that this produces a satisfying assignment.
+
+Finally, we note that all steps in the above decision procedure took time that is polynomial in the size of the formula's encoding. Therefore $2SAT \in P$. This concludes the proof.
+
+\end{document}
