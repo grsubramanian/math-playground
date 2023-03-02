@@ -22,4 +22,18 @@ Now, we prove the converse. If the graph has a 2-coloring, then we can obtain an
 
 Finally, we note that all steps in the above decision procedure took time that is polynomial in the size of the formula's encoding. Therefore $2SAT \in P$. This concludes the proof.
 
+27. Let's call an undirected graph with certain nodes labeled with integer values as a numbered graph. Such graphs can be encoded in a string much like undirected graphs, except now, there is an additional section in the string that contains the numberings. Further, let's refer to a numbered graph as minable if it is possible to place mines on the unnumbered nodes such that for each node that is numbered, the number of mined nodes adjacent to it is equal to the number on the node. We need to prove that the language $M = \{<G, N> \mid G \text{ is a minable graph with numbering scheme N }\}$ is NP-complete. It is easy to see that $M \in NP$ since we can build a verifier for $M$ which operates using certificates that encode the mine placement itself. We'll prove that $M \in \text{NP-complete}$ by showing a polynomial-time reduction from 3-SAT to $M$.
+
+Consider the problem of determining whether a given boolean formula $\phi$ belongs to 3-SAT. For each variable of $\phi$ (call it $x$), construct two unnumbered nodes $T(x)$ and $F(x)$ that respectively represent setting $x$ to true and false. Add another numbered node $Var(x)$ with the number $1$, and add two edges, one between $T(x)$ and $Var(x)$ and another between $F(x)$ and $Var(x)$. This construction captures the fact that $x$ can't be set to both true and false in a given assignment.
+
+Next, for each clause (call it $c$), add three nodes, firstly, a numbered node $Cl(c)$ with the number $3$ and secondly, two other peripheral helper nodes $P(c)$. Now, add two edges, one for each node in $P(c)$ between that node and $Cl(c)$. Also, add edges between $Cl(c)$ and the nodes corresponding to the terms in the clause. Specifically, if $x$ appears in clause $c$, then add an edge between $Cl(c)$ and $T(x)$. If $\overline{x}$ appears in clause $c$, add an edge between $Cl(c)$ and $F(x)$. This captures the fact that the clause must be satisfied by the assignment. The two peripheral nodes act as buffer in case fewer than three of the clause's terms is set to true in the assignment.
+
+This completes the construction. Now, we'll prove that $\phi \in \text{3-SAT}$ iff for the constructed numbered graph $G$ with numbering $N$, $<G, N> \in M$.
+
+Firstly, if we have a satisfying assignment for $\phi$, then for each variable (call it $x$), put a mine on node $T(x)$ if $x$ is true in the assignment, else put a mine on $F(x)$. This will satisfy the mine requirement for $Var(x)$. Then, for each clause (call it $c$), put as many mines in the $P(c)$ as required to meet the requirement of 3 mines surrounding the node $Cl(c)$. This is a valid mine assignment for graph $G$.
+
+Secondly, if we have a valid mine assignment for graph $G$, then for each variable (call it $x$), there is a mine placed at either $T(x)$ or $F(x)$ but not both (in order to meet the mine requirement of $Var(x)$). If it is set at $T(x)$, then set $x$ to true in the assignment, else false. For each clause (call it $c$), there are at most two mines placed in $P(c)$, so one of the mines meeting the mine requirement of 3 for $Cl(c)$ must come from a node that corresponds to a variable being set to true. This implies that the generated assignment for $\phi$ satisfies all clauses.
+
+Finally, the construction of $G$ from $\phi$ can be done in polynomial time in the size of the $\phi$'s encoding. Therefore, $M \in \text{NP-complete}$. This concludes the proof.
+
 \end{document}
